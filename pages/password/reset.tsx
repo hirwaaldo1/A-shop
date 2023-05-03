@@ -2,8 +2,18 @@ import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Button } from "@/components/ui";
 import Head from "next/head";
 import Link from "next/link";
+import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
 export default function Reset() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  }: {
+    register: UseFormRegister<FieldValues>;
+    handleSubmit: any;
+    formState: { errors: any };
+  } = useForm();
   return (
     <>
       <Head>
@@ -24,17 +34,31 @@ export default function Reset() {
                 The verfication email will be sent to the mailbox please check
                 it.
               </p>
-              <TextField
-                name="password"
-                placeholder="New Password"
-                type="password"
-              />
-              <TextField
-                name="password"
-                placeholder="Confirm Password"
-                type="password"
-              />
-              <Button>Reset Password</Button>
+              <form
+                onSubmit={handleSubmit((data: {}) => console.log(data))}
+                className="flex flex-col gap-5"
+              >
+                <div>
+                  <TextField
+                    name="password"
+                    placeholder="New Password"
+                    type="password"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.password?.message}
+                  </span>
+                </div>
+                <div>
+                  <TextField
+                    name="confirm-password"
+                    placeholder="Confirm Password"
+                    type="password"
+                    register={register}
+                  />
+                </div>
+                <Button>Reset Password</Button>
+              </form>
               <hr className="my-9" />
               <p className="text-center text-sm text-tertiary">
                 Return to{" "}

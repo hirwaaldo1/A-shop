@@ -2,8 +2,18 @@ import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Button } from "@/components/ui";
 import Head from "next/head";
 import Link from "next/link";
+import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
 export default function Signup() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  }: {
+    register: UseFormRegister<FieldValues>;
+    handleSubmit: any;
+    formState: { errors: any };
+  } = useForm();
   return (
     <>
       <Head>
@@ -21,19 +31,45 @@ export default function Signup() {
               <p className="mb-7 text-tertiary text-sm">
                 Hello there, Let’s start your journey with us.
               </p>
-              <TextField name="name" placeholder="Your Name" type="name" />
-              <TextField
-                name="email"
-                placeholder="Email or phone number"
-                type="email"
-              />
-              <TextField
-                name="password"
-                placeholder="Enter password"
-                type="password"
-              />
-
-              <Button>Sign up</Button>
+              <form
+                onSubmit={handleSubmit((data: {}) => console.log(data))}
+                className="flex flex-col gap-5"
+              >
+                <div>
+                  <TextField
+                    name="name"
+                    placeholder="Your Name"
+                    type="name"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.name?.message}
+                  </span>
+                </div>
+                <div>
+                  <TextField
+                    name="email"
+                    placeholder="Email or phone number"
+                    type="email"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.email?.message}
+                  </span>
+                </div>
+                <div>
+                  <TextField
+                    name="password"
+                    placeholder="Enter password"
+                    type="password"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.password?.message}
+                  </span>
+                </div>
+                <Button>Sign up</Button>
+              </form>
               <hr className="my-9" />
               <p className="text-center text-sm text-tertiary">
                 Already have an account?{" "}

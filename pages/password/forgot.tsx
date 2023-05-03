@@ -3,8 +3,18 @@ import { TextField, Button } from "@/components/ui";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
 export default function ForgotPassword() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  }: {
+    register: UseFormRegister<FieldValues>;
+    handleSubmit: any;
+    formState: { errors: any };
+  } = useForm();
   return (
     <>
       <Head>
@@ -31,12 +41,24 @@ export default function ForgotPassword() {
                 Every things is ok just you need to put your email and follow
                 roles
               </p>
-              <TextField
-                name="email"
-                placeholder="Email or phone number"
-                type="email"
-              />
-              <Button>Reset Password</Button>
+              <form
+                onSubmit={handleSubmit((data: {}) => console.log(data))}
+                className="flex flex-col gap-5"
+              >
+                <div className="mb-1">
+                  <TextField
+                    name="email"
+                    placeholder="Email or phone number"
+                    type="email"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.email?.message}
+                  </span>
+                </div>
+                <Button>Reset Password</Button>
+              </form>
+
               <hr className="my-9" />
               <p className="text-center text-sm text-tertiary">
                 Return to{" "}

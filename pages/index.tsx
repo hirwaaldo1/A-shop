@@ -2,8 +2,18 @@ import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Switch, Button } from "@/components/ui";
 import Head from "next/head";
 import Link from "next/link";
+import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  }: {
+    register: UseFormRegister<FieldValues>;
+    handleSubmit: any;
+    formState: { errors: any };
+  } = useForm();
   return (
     <>
       <Head>
@@ -20,26 +30,43 @@ export default function Home() {
               <h2 className="font-semibold text-xl mb-7">
                 Nice to see you again!
               </h2>
-              <TextField
-                name="email"
-                placeholder="Email or phone number"
-                type="email"
-              />
-              <TextField
-                name="password"
-                placeholder="Enter password"
-                type="password"
-              />
-              <div className="flex justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <Switch />
-                  <span className="text-sm text-primary">Remember me</span>
+              <form
+                onSubmit={handleSubmit((data: {}) => console.log(data))}
+                className="flex flex-col gap-5"
+              >
+                <div>
+                  <TextField
+                    name="email"
+                    placeholder="Email or phone number"
+                    type="email"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.email?.message}
+                  </span>
                 </div>
-                <span className="text-sm text-primary cursor-pointer active:underline">
-                  <Link href="/password/forgot">Forgot password?</Link>
-                </span>
-              </div>
-              <Button>Login</Button>
+                <div>
+                  <TextField
+                    name="password"
+                    placeholder="Enter password"
+                    type="password"
+                    register={register}
+                  />
+                  <span role="alert" className="span--error">
+                    {errors.password?.message}
+                  </span>
+                </div>
+                <div className="flex justify-between mb-8">
+                  <div className="flex items-center gap-2">
+                    <Switch />
+                    <span className="text-sm text-primary">Remember me</span>
+                  </div>
+                  <span className="text-sm text-primary cursor-pointer active:underline">
+                    <Link href="/password/forgot">Forgot password?</Link>
+                  </span>
+                </div>
+                <Button>Login</Button>
+              </form>
               <hr className="my-9" />
               <p className="text-center text-sm text-tertiary">
                 Don’t have an account?{" "}
