@@ -1,16 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const LeftSide = () => {
   return (
     <div className="relative bg-primary h-full pt-10">
       <div>
-        <Image
-          src="/assets/logo.png"
-          alt="A-shop"
-          width={40}
-          height={40}
-          className="ml-10"
-        />
+        <Link href="/">
+          <Image
+            src="/assets/logo.png"
+            alt="A-shop"
+            width={40}
+            height={40}
+            className="ml-10"
+          />
+        </Link>
         <Image
           src="/assets/shop-one.png"
           alt="shop"
