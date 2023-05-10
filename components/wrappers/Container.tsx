@@ -1,11 +1,11 @@
 type Props = React.PropsWithChildren<{
   as: "div" | "section" | "aside";
 }>;
-const Wrapper = ({
+const Container = ({
   as: Component = "section",
   children,
 }: Props): React.ReactElement => {
-  return <Component>{children}</Component>;
+  return <Component className="max-w-7xl mx-auto">{children}</Component>;
 };
 
-export default Wrapper;
+export default Container;

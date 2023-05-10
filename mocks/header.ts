@@ -13,17 +13,17 @@ export const HEADER_LINK: HeaderLink[] = [
   {
     id: 1,
     name: "Women",
-    link: "/",
+    link: "/women",
   },
   {
     id: 2,
     name: "Men",
-    link: "/",
+    link: "/men",
   },
   {
     id: 3,
     name: "Kids",
-    link: "/",
+    link: "/kids",
   },
 ];
 
@@ -31,41 +31,41 @@ export const HEADER_LINK_2: HeaderLink2[] = [
   {
     id: 1,
     name: "SALE",
-    link: "/",
+    link: "/dashboard",
   },
   {
     id: 2,
     name: "New Items",
-    link: "/",
+    link: "/new-items",
   },
   {
     id: 3,
     name: "Brands",
-    link: "/",
+    link: "/brands",
   },
   {
     id: 4,
     name: "Clothing",
-    link: "/",
+    link: "/clothing",
   },
   {
     id: 5,
     name: "Shoes",
-    link: "/",
+    link: "/shoes",
   },
   {
     id: 6,
     name: "Bags",
-    link: "/",
+    link: "/bags",
   },
   {
     id: 7,
     name: "Accessories",
-    link: "/",
+    link: "/accessories",
   },
   {
     id: 8,
     name: "Jewerly",
-    link: "/",
+    link: "/jewerly",
   },
 ];
