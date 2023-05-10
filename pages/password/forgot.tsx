@@ -1,3 +1,4 @@
+import Meta from "@/components/meta";
 import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Button } from "@/components/ui";
 import Head from "next/head";
@@ -17,9 +18,7 @@ export default function ForgotPassword() {
   } = useForm();
   return (
     <>
-      <Head>
-        <title>Password - Forgot</title>
-      </Head>
+      <Meta title="Password - Forgot" />
       <div className="flex justify-center items-center bg-primary">
         <div className="flex w-full max-w-screen-2xl h-screen">
           <div className="flex-1 hidden md:block">
@@ -51,10 +50,8 @@ export default function ForgotPassword() {
                     placeholder="Email or phone number"
                     type="email"
                     register={register}
+                    errors={errors.email?.message}
                   />
-                  <span role="alert" className="span--error">
-                    {errors.email?.message}
-                  </span>
                 </div>
                 <Button>Reset Password</Button>
               </form>

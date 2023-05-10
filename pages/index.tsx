@@ -1,6 +1,6 @@
+import Meta from "@/components/meta";
 import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Switch, Button } from "@/components/ui";
-import Head from "next/head";
 import Link from "next/link";
 import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
@@ -16,9 +16,7 @@ export default function Home() {
   } = useForm();
   return (
     <>
-      <Head>
-        <title>Login</title>
-      </Head>
+      <Meta title="Login" />
       <div className="flex justify-center items-center bg-primary">
         <div className="flex w-full max-w-screen-2xl h-screen">
           <div className="flex-1 hidden md:block">
@@ -40,10 +38,8 @@ export default function Home() {
                     placeholder="Email or phone number"
                     type="email"
                     register={register}
+                    errors={errors.email?.message}
                   />
-                  <span role="alert" className="span--error">
-                    {errors.email?.message}
-                  </span>
                 </div>
                 <div>
                   <TextField
@@ -51,6 +47,7 @@ export default function Home() {
                     placeholder="Enter password"
                     type="password"
                     register={register}
+                    errors={errors.password?.message}
                   />
                   <span role="alert" className="span--error">
                     {errors.password?.message}

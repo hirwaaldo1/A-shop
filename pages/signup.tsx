@@ -1,6 +1,6 @@
+import Meta from "@/components/meta";
 import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Button } from "@/components/ui";
-import Head from "next/head";
 import Link from "next/link";
 import { FieldValues, UseFormRegister, useForm } from "react-hook-form";
 
@@ -16,9 +16,7 @@ export default function Signup() {
   } = useForm();
   return (
     <>
-      <Head>
-        <title>Sign Up</title>
-      </Head>
+      <Meta title="Sign Up" />
       <div className="flex justify-center items-center bg-primary">
         <div className="flex w-full max-w-screen-2xl h-screen">
           <div className="flex-1 hidden md:block">
@@ -33,41 +31,29 @@ export default function Signup() {
               </p>
               <form
                 onSubmit={handleSubmit((data: {}) => console.log(data))}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-1.5"
               >
-                <div>
-                  <TextField
-                    name="name"
-                    placeholder="Your Name"
-                    type="name"
-                    register={register}
-                  />
-                  <span role="alert" className="span--error">
-                    {errors.name?.message}
-                  </span>
-                </div>
-                <div>
-                  <TextField
-                    name="email"
-                    placeholder="Email or phone number"
-                    type="email"
-                    register={register}
-                  />
-                  <span role="alert" className="span--error">
-                    {errors.email?.message}
-                  </span>
-                </div>
-                <div>
-                  <TextField
-                    name="password"
-                    placeholder="Enter password"
-                    type="password"
-                    register={register}
-                  />
-                  <span role="alert" className="span--error">
-                    {errors.password?.message}
-                  </span>
-                </div>
+                <TextField
+                  name="name"
+                  placeholder="Your Name"
+                  type="name"
+                  register={register}
+                  errors={errors.name?.message}
+                />
+                <TextField
+                  name="email"
+                  placeholder="Email or phone number"
+                  type="email"
+                  register={register}
+                  errors={errors.email?.message}
+                />
+                <TextField
+                  name="password"
+                  placeholder="Enter password"
+                  type="password"
+                  register={register}
+                  errors={errors.password?.message}
+                />
                 <Button>Sign up</Button>
               </form>
               <hr className="my-9" />

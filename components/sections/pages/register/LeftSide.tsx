@@ -19,6 +19,7 @@ const LeftSide = () => {
           alt="shop"
           width={1004}
           height={944}
+          draggable={false}
           className="absolute bottom-0 -right-11"
         />
       </div>

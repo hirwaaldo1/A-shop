@@ -1,3 +1,4 @@
+import Meta from "@/components/meta";
 import { LeftSide } from "@/components/sections/pages/register";
 import { TextField, Button } from "@/components/ui";
 import Head from "next/head";
@@ -16,9 +17,7 @@ export default function Reset() {
   } = useForm();
   return (
     <>
-      <Head>
-        <title>Password - Reset</title>
-      </Head>
+      <Meta title="Password - Reset" />
       <div className="flex justify-center items-center bg-primary">
         <div className="flex w-full max-w-screen-2xl h-screen">
           <div className="flex-1 hidden md:block">
@@ -38,25 +37,20 @@ export default function Reset() {
                 onSubmit={handleSubmit((data: {}) => console.log(data))}
                 className="flex flex-col gap-5"
               >
-                <div>
-                  <TextField
-                    name="password"
-                    placeholder="New Password"
-                    type="password"
-                    register={register}
-                  />
-                  <span role="alert" className="span--error">
-                    {errors.password?.message}
-                  </span>
-                </div>
-                <div>
-                  <TextField
-                    name="confirm-password"
-                    placeholder="Confirm Password"
-                    type="password"
-                    register={register}
-                  />
-                </div>
+                <TextField
+                  name="password"
+                  placeholder="New Password"
+                  type="password"
+                  register={register}
+                  errors={errors.password?.message}
+                />
+                <TextField
+                  name="confirm-password"
+                  placeholder="Confirm Password"
+                  type="password"
+                  errors={errors.password?.message}
+                  register={register}
+                />
                 <Button>Reset Password</Button>
               </form>
               <hr className="my-9" />
