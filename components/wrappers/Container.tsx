@@ -5,7 +5,9 @@ const Container = ({
   as: Component = "section",
   children,
 }: Props): React.ReactElement => {
-  return <Component className="max-w-7xl mx-auto">{children}</Component>;
+  return (
+    <Component className="mx-8 md:mx-auto max-w-7xl">{children}</Component>
+  );
 };
 
 export default Container;

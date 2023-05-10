@@ -1,7 +1,7 @@
 import { HEADER_LINK_2 } from "@/mocks/header";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FiTriangle } from "react-icons/fi";
+import { FiTriangle, FiCopy } from "react-icons/fi";
 import { GoHome } from "react-icons/go";
 import Container from "../wrappers/Container";
 
@@ -40,27 +40,33 @@ export default function NavBar() {
 
 function SmallNavBar() {
   return (
-    <div className="flex gap-3 text-[15px] text-[#616874] items-center mt-5">
-      <GoHome size={19} />
-      <div className="flex gap-3 items-center">
-        <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
-        <span>Home</span>
+    <div className="hidden md:flex justify-between items-center my-5">
+      <div className="flex gap-3 text-[15px] text-[#616874] items-center">
+        <GoHome size={19} />
+        <div className="flex gap-3 items-center">
+          <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
+          <span>Home</span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
+          <span>Women</span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
+          <span>Gucci</span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
+          <span>Shoes</span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
+          <span className="text-black">Rhyton sneaker with 25</span>
+        </div>
       </div>
-      <div className="flex gap-3 items-center">
-        <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
-        <span>Women</span>
-      </div>
-      <div className="flex gap-3 items-center">
-        <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
-        <span>Gucci</span>
-      </div>
-      <div className="flex gap-3 items-center">
-        <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
-        <span>Shoes</span>
-      </div>
-      <div className="flex gap-3 items-center">
-        <FiTriangle size={8} className="rotate-90 fill-[#616874]" />
-        <span className="text-black">Rhyton sneaker with 25</span>
+      <div className=" gap-2 items-center text-[#616874] cursor-pointer hidden md:flex">
+        <FiCopy size={17} />
+        <span className="text-sm">ID: 578392</span>
       </div>
     </div>
   );
